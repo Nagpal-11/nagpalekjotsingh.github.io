@@ -1,0 +1,94 @@
+/* General Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d111c; /* Deep Dark Blue/Black */
+    color: #e5e7eb;
+    scroll-behavior: smooth;
+    background-image: url('a-chosen-soul-D_ivYIn4jWw-unsplash.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Adjust size as needed */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Creates smooth parallax effect */
+    background-position: center;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #111827;
+}
+::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+/* Section Header Styling */
+.section-tag {
+    font-size: 1.125rem;
+    color: #a78bfa; /* Light Purple */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #ffffff;
+    margin-bottom: 3rem;
+}
+
+/* Work Experience Timeline Styling */
+.timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+    border-left: 2px solid #374151; /* Dark Gray Line */
+}
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+.timeline-item-icon {
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #6366f1; /* Main Accent Color */
+    border: 4px solid #0d111c; /* Body Background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.timeline-content {
+    background: #111827; /* Slightly lighter background for the content box */
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin-top: -0.5rem; /* Align with the icon */
+}
+
+/* 3D Canvas Styling */
+#hero-canvas, #contact-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

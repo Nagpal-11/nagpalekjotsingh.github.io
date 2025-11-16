@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekjot | Portfolio</title>
+    <!-- Load Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load Three.js for 3D visuals -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Load Lucide Icons for aesthetic vectors -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-black/50 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Brand -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-white tracking-wider">Ekjot | <span class="text-indigo-400">Portfolio</span></span>
+                </div>
+                <!-- Nav Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200">About</a>
+                        <a href="#experience" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200">Work</a>
+                        <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200">Projects</a>
+                        <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button (Placeholder for functionality) -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/90">
+                <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#experience" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Work</a>
+                <a href="#projects" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center justify-center pt-16 md:pt-0 overflow-hidden">
+            <div id="hero-canvas" class="absolute inset-0 z-0 opacity-70"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center md:text-left py-20">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">Ekjot</span>
+                </h1>
+                <p class="mt-4 text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto md:mx-0">
+                    Transforming ideas into intelligent AI and ML models.
+                </p>
+                <a href="#contact" class="mt-8 inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                    Hire Me
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="section-tag">INTRODUCTION</p>
+            <h2 class="section-title">Overview</h2>
+            
+            <!-- Description -->
+            <p class="text-lg text-gray-400 max-w-4xl mb-16">
+                I build AI and ML models that solve real-world problems, from healthcare assistants to disease detection systems. As AI Club Coordinator and a hackathon winner, I combine innovation with impact, constantly pushing the limits of intelligent systems.
+            </p>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1: Web Developer -->
+                <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] hover:shadow-indigo-900/50">
+                    <!-- Icon Placeholder -->
+                    <div class="h-16 w-16 mb-4 bg-indigo-500/20 rounded-xl flex items-center justify-center">
+                        <i data-lucide="area-chart" class="w-8 h-8 text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mt-4">Data Visualization</h3>
+                </div>
+                <!-- Card 2: React Native Developer -->
+                <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] hover:shadow-purple-900/50">
+                    <div class="h-16 w-16 mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center">
+                        <i data-lucide="bot" class="w-8 h-8 text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mt-4">AI - ML Model </h3>
+                </div>
+                <!-- Card 3: Backend Developer -->
+                <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] hover:shadow-cyan-900/50">
+                    <div class="h-16 w-16 mb-4 bg-cyan-500/20 rounded-xl flex items-center justify-center">
+                        <i data-lucide="database" class="w-8 h-8 text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mt-4">Relational Database Design</h3>
+                </div>
+                <!-- Card 4: Content Creator -->
+                <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] hover:shadow-fuchsia-900/50">
+                    <div class="h-16 w-16 mb-4 bg-fuchsia-500/20 rounded-xl flex items-center justify-center">
+                        <i data-lucide="camera" class="w-8 h-8 text-fuchsia-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mt-4">Content Creator</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="section-tag">SKILLS & TOOLS</p>
+            <h2 class="section-title">Tech Stack.</h2>
+
+            <div class="flex flex-wrap justify-center gap-10">
+                <!-- Tech Icons - Using simple colored backgrounds and text for placeholders -->
+                <div class="h-20 w-20 flex items-center justify-center rounded-full bg-[#E34F26]/20 border border-[#E34F26]">
+                    <span class="text-[#E34F26] font-bold text-sm">PYTHON</span>
+                </div>
+                <div class="h-20 w-20 flex items-center justify-center rounded-full bg-[#1572B6]/20 border border-[#1572B6]">
+                    <span class="text-[#1572B6] font-bold text-sm">SQL</span>
+                </div>
+                <div class="h-20 w-20 flex items-center justify-center rounded-full bg-[#F7DF1E]/20 border border-[#F7DF1E]">
+                    <span class="text-[#F7DF1E] font-bold text-sm">ML</span>
+                </div>
+                <div class="h-20 w-20 flex items-center justify-center rounded-full bg-[#61DAFB]/20 border border-[#61DAFB]">
+                    <span class="text-[#61DAFB] font-bold text-sm">FLASK</span>
+                </div>
+                <div class="h-20 w-20 flex items-center justify-center rounded-full bg-[#339933]/20 border border-[#339933]">
+                    <span class="text-[#339933] font-bold text-sm">GIT</span>
+                </div>
+                <!-- ... add more technologies as needed -->
+            </div>
+        </section>
+
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <p class="section-tag">WHAT I HAVE DONE SO FAR</p>
+  <h2 class="section-title">Work Experience</h2>
+
+  <div class="space-y-12">
+    
+    <!-- Experience Item 1 -->
+    <div class="timeline-item">
+      <div class="timeline-item-icon">
+        <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+      </div>
+      <div class="timeline-content">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="text-2xl font-semibold text-white">MeitY GENESIS EiR Grant Achievement</h3>
+          <span class="text-sm font-medium text-indigo-400">Mizoram University | November 2025</span>
+        </div>
+        <p class="text-lg text-gray-400 mb-4"><b>TiLi</b></p>
+        <ul class="list-disc list-inside space-y-2 text-gray-400 ml-4">
+          <li><b>Project Title:</b> AYULEX - AI-Powered Healthcare for Every Indian</li>
+          <li><b>Funding Program:</b> MeitY GEN-NEXT Support for Innovative Startups (GENESIS) - Entrepreneur in Residence (EiR)</li>
+          <li><b>Cohort:</b> GENESIS EiR cohort 2</li>
+          <li><b>Total Grant:</b> Rs. 5 Lakh (to be allocated across our selected project)</li>
+          <li><b>Selection Process:</b> Awarded after successfully completing two rounds of the selection process facilitated by TiLi Incubator.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience Item 2 -->
+    <div class="timeline-item">
+      <div class="timeline-item-icon">
+        <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+      </div>
+      <div class="timeline-content">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="text-2xl font-semibold text-white">AI Healthcare Prototype Development – Yuvamanthan Hackathon 2025</h3>
+          <span class="text-sm font-medium text-indigo-400">Mizoram University | October 2025</span>
+        </div>
+        <p class="text-lg text-gray-400 mb-4">Mizoram University</p>
+        <ul class="list-disc list-inside space-y-2 text-gray-400 ml-4">
+          <li>Developed an AI-powered healthcare assistant using Python, Flask, and LLaMA2 for real-time symptom analysis.</li>
+          <li>Integrated ML techniques and intelligent decision support for medical diagnostics and accessibility.</li>
+          <li>Recognized for technical execution, innovation, and real-world application potential.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience Item 3 -->
+    <div class="timeline-item">
+      <div class="timeline-item-icon">
+        <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+      </div>
+      <div class="timeline-content">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="text-2xl font-semibold text-white">Case Study Competition – Milk Candy</h3>
+          <span class="text-sm font-medium text-indigo-400">Mizoram University | March 2025</span>
+        </div>
+        <p class="text-lg text-gray-400 mb-4">Mizoram University</p>
+        <ul class="list-disc list-inside space-y-2 text-gray-400 ml-4">
+          <li>Developed strategic growth and marketing plans to scale the brand’s presence across Northeast India.</li>
+          <li>Proposed data-driven solutions for sales growth, cost optimization, and market expansion.</li>
+          <li>Secured first place by presenting the final strategy to the judging panel.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="section-tag">MY WORK</p>
+            <h2 class="section-title">Projects</h2>
+
+            <p class="text-lg text-gray-400 max-w-4xl mb-16">
+                The projects below showcase my technical expertise and practical experience through real-world applications of AI, Machine Learning, and full-stack frameworks. Each example demonstrates my ability to solve complex problems and manage projects effectively from concept to deployment.
+            </p>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1: Car Rent -->
+                <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-xl transition duration-300 hover:shadow-indigo-700/50">
+                    <img src="Screenshot 2025-10-30 232354.png" alt="Ayulex Project Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">AI Healthcare Assistant Prototype</h3>
+                        <p class="text-gray-400 text-sm mb-4">A sophisticated AI-based conversational platform for real-time symptom analysis and medical guidance for doctors, which evolved into the grant-winning Ayulex prototype.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded-full">#Python</span>
+                            <span class="text-xs font-medium bg-cyan-900/50 text-cyan-300 px-2 py-0.5 rounded-full">#Flask</span>
+                            <span class="text-xs font-medium bg-green-900/50 text-green-300 px-2 py-0.5 rounded-full">#LLaMA2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Job IT -->
+                <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-xl transition duration-300 hover:shadow-indigo-700/50">
+                    <img src="Gemini_Generated_Image_wat5iwwat5iwwat5 (1).png" alt="Job IT Project Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Credit Card Fraud Detection System</h3>
+                        <p class="text-gray-400 text-sm mb-4">An advanced machine learning model implemented to detect and flag fraudulent transactions, enhancing financial security and reducing false positives</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded-full">#Python</span>
+                            <span class="text-xs font-medium bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded-full">#Machine Learning</span>
+                            <span class="text-xs font-medium bg-yellow-900/50 text-yellow-300 px-2 py-0.5 rounded-full">#Logistic Regression</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Trip Guide -->
+                <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-xl transition duration-300 hover:shadow-indigo-700/50">
+                    <img src="Gemini_Generated_Image_wat5iwwat5iwwat5.png" alt="Trip Guide Project Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Diabetes Prediction System</h3>
+                        <p class="text-gray-400 text-sm mb-4">A full-stack ML system for early diabetes detection using medical data analysis, providing predictive modeling and featuring an integrated web interface.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-red-900/50 text-red-300 px-2 py-0.5 rounded-full">#Python</span>
+                            <span class="text-xs font-medium bg-indigo-900/50 text-indigo-300 px-2 py-0.5 rounded-full">#Machine Learning</span>
+                            <span class="text-xs font-medium bg-pink-900/50 text-pink-300 px-2 py-0.5 rounded-full">#Flask</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- COLUMN 1: Contact Form (Tall Element) -->
+        <div class="p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-800">
+            <p class="text-sm font-semibold tracking-wider text-indigo-400 uppercase">GET IN TOUCH</p>
+            <h2 class="text-5xl font-extrabold text-white mb-8">Contact</h2>
+
+            <form id="contact-form" class="space-y-6" action="https://formspree.io/f/xjkjazov" method="POST">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="What's your name?" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="What's your email?" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="What do you want to say?" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150" required></textarea>
+                </div>
+                <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.01]">
+                    Send
+                </button>
+                <p id="form-message" class="text-sm text-center pt-2"></p>
+            </form>
+        </div> 
+
+        <!-- COLUMN 2: Image Visual (Matches Form Height and Styling) -->
+        <!-- NOTE: We use the same styling classes and ensure the content uses h-full -->
+        <div class="p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-800 h-full">
+            
+            <!-- Inner container to hold the image -->
+            <div class="h-full w-full relative rounded-lg overflow-hidden">
+                
+                <!-- Image element filling the entire height/width of its parent -->
+                <img 
+                    src="martin-martz-Wa-3T6d0rBo-unsplash.jpg" 
+                    alt="Abstract data network and technology background"
+                    class="w-full h-full object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/800x800/1f2937/a78bfa?text=Data-Driven+Innovation';"
+                >
+                
+                <!-- Overlay gradient for visual effect and text -->
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent pointer-events-none"></div>
+
+                <!-- Centered Text Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
+                    <div>
+                        <h3 class="text-3xl font-extrabold text-white leading-tight mb-1">
+                            Let's power up your next project.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Ekjot | Portfolio</p>
+        </div>
+    </footer>
+
+    <!-- Link Custom JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
